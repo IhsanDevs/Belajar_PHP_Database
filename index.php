@@ -48,7 +48,7 @@ if (isset($_POST['cari'])) {
     <a href="hapus.php?id=<?php echo $row['id']; ?>" class="text-decoration-none" name="hapus" onclick="return confirm('Oups.. Apakah Anda yakin ingin menghapus data ini?')">Hapus</a>
     </td>
 
-    <td><img src="img/user/<?php echo $row['gambar']; ?>" alt="Profile" width="20%" height="20%" class="img-fluid rounded mx-auto d-block"></td>
+    <td><img src="img/user/<?php echo $row['gambar']; ?>" alt="Foto Profil" width="70" class="img-fluid rounded mx-auto d-block"></td>
     <td><?php echo $row['nrp']; ?> </td>
     <td><?php echo $row['nama']; ?></td>
     <td><?php echo $row['email']; ?></td>

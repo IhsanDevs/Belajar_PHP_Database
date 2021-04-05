@@ -2,6 +2,11 @@
 // connect ke database
 require 'functions.php';
 
+// Cek apakah terdapat parameter ID pada url
+if (empty($_GET['id'])) {
+    echo "<script>alert('Akses ditolak !'); window.location.replace('index.php');</script>";
+} 
+
 // Ambil data sesuai ID
 $idTarget = $_GET['id'];
 $idMahasiswa = query("SELECT * FROM mahasiswa WHERE id = $idTarget")[0];

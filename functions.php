@@ -53,7 +53,7 @@ function tambah($dataTambah){
 
             
             if ($error === 4) {
-                echo "<script>alert('masukkan foto profil!');</script>";
+                echo "<script>alert('masukkan foto profil!'); window.location.replace('index.php');</script>";
                 return false;
             }
 
@@ -62,14 +62,14 @@ function tambah($dataTambah){
             $ekstentionImage = explode('.', $namaFile);
             $ekstentionImage = strtolower(end($ekstentionImage));
             if (!in_array($ekstentionImage, $ekstentionValid)) {
-                echo "<script>alert('Format file tidak di izinkan !');</script>";
+                echo "<script>alert('Format file tidak di izinkan !'); window.location.replace('index.php');</script>";
                 return false;
             }
 
     
         // Check ukuran file
         if ($ukuranFile > 1000000) {
-            echo "<script>alert('Ukuran gambar terlalu besar !');</script>";
+            echo "<script>alert('Ukuran gambar terlalu besar !'); window.location.replace('index.php');</script>";
             return false;
         }
 
@@ -109,7 +109,7 @@ function update($dataUpdate){
     if ($_FILES['gambar']['error'] === 4) {
         $gambar = $gambarLama;
     } else {
-        $gambar = upload(); 
+        $gambar = upload();
     }
    
 
