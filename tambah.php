@@ -5,7 +5,7 @@ require 'functions.php';
 
 // Cek apakah tombol submit sudah ditekan atau belum
 if (isset($_POST['submit'])) {
-    tambah($_POST);
+    htmlspecialchars(tambah($_POST));
 }
 
 ?>
