@@ -44,7 +44,7 @@ if (isset($_POST['submit'])) {
 
                 <label for="formFile" class="form-label">Pilih foto profil : </label><br>
 
-                <img src="img/user/<?php echo $idMahasiswa['gambar']; ?>" alt="Foto Profil" width="70">
+                <img src="img/user/<?php echo $idMahasiswa['gambar']; ?>" alt="Foto Profil" width="100"><br><br>
 
                 <input class="form-control" type="file" id="formFile" name="gambar"><br>
 
