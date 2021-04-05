@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 04 Apr 2021 pada 11.34
+-- Waktu pembuatan: 05 Apr 2021 pada 15.58
 -- Versi server: 10.4.18-MariaDB
 -- Versi PHP: 8.0.3
 
@@ -41,10 +41,10 @@ CREATE TABLE `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`id`, `nama`, `nrp`, `email`, `jurusan`, `gambar`) VALUES
-(2, 'Mark Zuckerberg', '809176816', 'mark@gmail.com', 'Pembangunan', '004.png'),
-(3, 'Budi tak berbudi', '187161987', 'nicebro@gmail.com', 'Kuli', '002.png'),
-(4, 'Boboiboy', '901799101', 'test@gmail.com', 'RPL', '001.png'),
-(18, '901876178', 'Rudi bin', 'rudi90@gmail.com', 'RPL', '001.png');
+(2, 'Mark Zuckerberg', '809176816', 'marker@gmail.com', 'Perhackeran', '004.png'),
+(4, 'heroku', '901799101', 'heroku_bad@gmail.com', 'Kuli', '001.png'),
+(46, 'Hendra Mahendra', '827627826', 'hendra@gmail.com', 'Elektronika', '606adb8f502ee.jpg'),
+(47, 'Reno', '817667617', 'andi.reno@gmail.com', 'RPL', '606b02a72ca37.jpg');
 
 --
 -- Indexes for dumped tables
@@ -64,7 +64,7 @@ ALTER TABLE `mahasiswa`
 -- AUTO_INCREMENT untuk tabel `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

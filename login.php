@@ -7,8 +7,8 @@ if (isset($_SESSION['statusLogin'])) {
 }
 require 'functions.php';
 if (isset($_POST['login'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
+    $password = mysqli_real_escape_string($conn, $_POST['password']);
 
     $result = mysqli_query($conn, "SELECT * FROM users WHERE username = '$username'");
 
