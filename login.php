@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+if (isset($_SESSION['statusLogin'])) {
+    header('location: index.php');
+    exit;
+}
 require 'functions.php';
 if (isset($_POST['login'])) {
     $username = $_POST['username'];
@@ -11,6 +17,8 @@ if (isset($_POST['login'])) {
         // Cek password
         $row = mysqli_fetch_assoc($result);
         if (password_verify($password, $row['password'] )){
+            // Set session
+            $_SESSION['statusLogin'] = true;
             header ("location: index.php");
             exit;
         }
@@ -41,7 +49,7 @@ if (isset($_POST['login'])) {
     </style>
 </head>
 <body class="p-3 mb-2 bg-primary text-white">
-<h1 class="text-center">Log In</h1>
+<h1 class="text-center">Log In Administrator</h1>
     <form action="" method="post">
 
     
@@ -64,6 +72,7 @@ if (isset($_POST['login'])) {
                 <input type="password" name="password" id="password" placeholder="password" size="50" class="form-control" required>
             </li>
 
+            <li>Belum daftar? silahkan<a href="http://localhost/belajar_db/signup.php" class="badge badge-light">klik disini</a>.</li>
 
             <li><button type="submit" class="btn btn-light" name="login">Log In</button></li>
         </ul>

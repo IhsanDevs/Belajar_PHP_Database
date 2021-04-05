@@ -32,7 +32,7 @@ if (isset($_POST['signup'])) {
     </style>
 </head>
 <body class="p-3 mb-2 bg-primary text-white">
-    <h1 class="text-center">Sign Up</h1>
+    <h1 class="text-center">Sign Up Administrator</h1>
     <form action="" method="post">
         <ul>
             <li>
@@ -54,6 +54,8 @@ if (isset($_POST['signup'])) {
                 <label for="confirm">Confirm Password :</label>
                 <input type="password" name="confirm" id="confirm" placeholder="password" size="50" class="form-control" required>
             </li>
+
+            <li>Sudah terdaftar? silahkan<a href="http://localhost/belajar_db/login.php" class="badge badge-light">klik disini</a>.</li>
 
             <li><button type="submit" class="btn btn-light" name="signup">Sign Up</button></li>
         </ul>

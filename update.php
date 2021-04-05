@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!isset($_SESSION['statusLogin'])) {
+    header('location: login.php');
+    exit;
+}
 // connect ke database
 require 'functions.php';
 

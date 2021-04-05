@@ -1,9 +1,14 @@
 <?php
+session_start();
+if (!isset($_SESSION['statusLogin'])) {
+    header('location: login.php');
+    exit;
+}
 
 require 'functions.php';
 $mahasiswa = query("SELECT * FROM `mahasiswa` ORDER BY id DESC");
 
-// Tobol cari di klik
+// Tombol cari di klik
 if (isset($_POST['cari'])) {
     $mahasiswa = cari($_POST['keyword']);
 }
@@ -26,6 +31,7 @@ if (isset($_POST['cari'])) {
 
     <a href="tambah.php" class="text-decoration-none"><button class="btn btn-primary">Tambah data mahasiswa</button></a><br><br>
 
+    <a href="logout.php"><button type="button" class="btn btn-outline-light">Log Out</button></a><br><br>
 
     <table border="1" cellpadding="10" cellspacing="0" class="table table-bordered table-hover table-striped text-center p-3 mb-2 bg-light text-dark">
     <thead>
