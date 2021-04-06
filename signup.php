@@ -29,6 +29,14 @@ if (isset($_POST['signup'])) {
             list-style: none;
             margin: 10px;
         }
+
+        a {
+            text-decoration: none;
+        }
+
+        a:hover{
+            color: greenyellow;
+        }
     </style>
 </head>
 <body class="p-3 mb-2 bg-primary text-white">

@@ -1,11 +1,24 @@
 <?php
+require 'functions.php';
 session_start();
+if (isset($_COOKIE['id']) && $_COOKIE['password']) {
+    $id = $_COOKIE['id'];
+    $pass = $_COOKIE['password'];
 
+    // Ambil username berdasarkan id
+    $result = mysqli_query($conn, 'SELECT username FROM users WHERE id = '.$id);
+    $row = mysqli_fetch_assoc($result);
+
+    // Cek cookie dan username
+    if ($pass === hash('sha1', $row['username'])) {
+        $_SESSION['statusLogin'] == true;
+    }
+}
 if (isset($_SESSION['statusLogin'])) {
     header('location: index.php');
     exit;
 }
-require 'functions.php';
+
 if (isset($_POST['login'])) {
     $username = mysqli_real_escape_string($conn, $_POST['username']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
@@ -19,6 +32,13 @@ if (isset($_POST['login'])) {
         if (password_verify($password, $row['password'] )){
             // Set session
             $_SESSION['statusLogin'] = true;
+
+            // Check apakah remember me di checklist
+            if (isset($_POST['remember'])) {
+                // Buat cookie
+                setcookie('id', $row['id'], time()+300);
+                setcookie('password', hash('sha1', $row['username']), time()+300);
+            }
             header ("location: index.php");
             exit;
         }
@@ -46,6 +66,14 @@ if (isset($_POST['login'])) {
             list-style: none;
             margin: 10px;
         }
+
+        a {
+            text-decoration: none;
+        }
+
+        a:hover{
+            color: greenyellow;
+        }
     </style>
 </head>
 <body class="p-3 mb-2 bg-primary text-white">
@@ -70,6 +98,13 @@ if (isset($_POST['login'])) {
             <li>
                 <label for="password">Password :</label>
                 <input type="password" name="password" id="password" placeholder="password" size="50" class="form-control" required>
+            </li>
+
+            <li>
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="remember">
+                <label class="form-check-label" for="flexCheckDefault">
+                Remember Me
+                </label>
             </li>
 
             <li>Belum daftar? silahkan<a href="http://localhost/belajar_db/signup.php" class="badge badge-light">klik disini</a>.</li>
